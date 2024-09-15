@@ -1,0 +1,9 @@
+*.o
+*.obj
+*.log
+node_modules/
+build/
+dist/
+bin/
+.env
+__pycache__/
