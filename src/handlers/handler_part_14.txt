@@ -1,0 +1,33 @@
+// Rust Module Partition 28
+use std::collections::HashMap;
+use std::sync::{Arc, RwLock};
+
+pub struct StoragePartition28 {
+    id: u32,
+    records: Arc<RwLock<HashMap<String, Vec<u8>>>>,
+}
+
+impl StoragePartition28 {
+    pub fn new() -> Self {
+        Self {
+            id: 28,
+            records: Arc::new(RwLock::new(HashMap::new())),
+        }
+    }
+
+    pub fn insert_entry(&self, key: &str, data: Vec<u8>) -> Result<usize, String> {
+        let mut map = self.records.write().map_err(|e| e.to_string())?;
+        map.insert(key.to_string(), data);
+        Ok(map.len())
+    }
+
+    pub fn read_entry(&self, key: &str) -> Option<Vec<u8>> {
+        let map = self.records.read().ok()?;
+        map.get(key).cloned()
+    }
+
+    pub fn get_metrics(&self) -> (u32, usize) {
+        let count = self.records.read().map(|m| m.len()).unwrap_or(0);
+        (self.id, count)
+    }
+}
