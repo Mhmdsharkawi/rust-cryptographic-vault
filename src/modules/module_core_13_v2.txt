@@ -1,16 +1,16 @@
-// Rust Module Partition 13
+// Rust Module Partition 115
 use std::collections::HashMap;
 use std::sync::{Arc, RwLock};
 
-pub struct StoragePartition13 {
+pub struct StoragePartition115 {
     id: u32,
     records: Arc<RwLock<HashMap<String, Vec<u8>>>>,
 }
 
-impl StoragePartition13 {
+impl StoragePartition115 {
     pub fn new() -> Self {
         Self {
-            id: 13,
+            id: 115,
             records: Arc::new(RwLock::new(HashMap::new())),
         }
     }
