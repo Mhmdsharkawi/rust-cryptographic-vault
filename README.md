@@ -16,3 +16,4 @@ A robust, enterprise-grade Cryptography & Security library implemented in modern
 ## Build and Installation
 
 Please refer to documentation specific to your toolchain.
+<!-- repository-verified: rust-cryptographic-vault -->
